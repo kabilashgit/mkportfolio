@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manikandan K - Portfolio & Blog</title>
+    <link rel="icon" type="image/svg+xml" href="mk-logo-white.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- Subtle Background Sprites -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="bg-sprite-grid absolute inset-0 opacity-40"></div>
+        <div class="brand-watermark" aria-hidden="true">
+            <img src="mk-logo-white.svg" alt="" class="invert-on-light">
+        </div>
+        <div class="sprite sprite-1"></div>
+        <div class="sprite sprite-2"></div>
+        <div class="sprite sprite-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 hidden md:grid grid-cols-3 items-center">
+            <div class="flex justify-end gap-6 text-sm font-medium text-slate-400 pr-4">
+                <a href="javascript:void(0)" onclick="scrollToSection('about')" class="hover:text-indigo-400 transition cursor-pointer">About</a>
+                <a href="javascript:void(0)" onclick="scrollToSection('experience')" class="hover:text-indigo-400 transition cursor-pointer">Experience</a>
+            </div>
+            <a href="index.html" class="flex items-center justify-center">
+                <div class="menu-theme-wrap">
+                    <button type="button" id="theme-light" class="menu-theme-btn" data-theme-value="light">Light</button>
+                    <img src="mk-logo-white.svg" alt="MK logo" class="brand-mark invert-on-light">
+                    <button type="button" id="theme-dark" class="menu-theme-btn active" data-theme-value="dark">Dark</button>
+                </div>
+            </a>
+            <div class="flex justify-start gap-6 text-sm font-medium text-slate-400 pl-4">
+                <a href="javascript:void(0)" onclick="scrollToSection('projects')" class="hover:text-indigo-400 transition cursor-pointer">Projects</a>
+                <a href="javascript:void(0)" onclick="scrollToSection('blog')" class="hover:text-indigo-400 transition cursor-pointer">Blog</a>
+            </div>
+        </div>
+        <div class="md:hidden">
+            <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+                <a href="index.html">
+                    <img src="mk-logo-white.svg" alt="MK logo" class="brand-mark invert-on-light">
+                </a>
+                <div class="flex gap-4 text-xs font-medium text-slate-400">
+                    <a href="javascript:void(0)" onclick="scrollToSection('about')" class="hover:text-indigo-400 transition cursor-pointer">About</a>
+                    <a href="javascript:void(0)" onclick="scrollToSection('experience')" class="hover:text-indigo-400 transition cursor-pointer">Exp</a>
+                    <a href="javascript:void(0)" onclick="scrollToSection('projects')" class="hover:text-indigo-400 transition cursor-pointer">Projects</a>
+                    <a href="javascript:void(0)" onclick="scrollToSection('blog')" class="hover:text-indigo-400 transition cursor-pointer">Blog</a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800/60 bg-slate-950/90 backdrop-blur-sm">
+                <div class="max-w-6xl mx-auto px-6 h-12 flex items-center justify-center">
+                    <div class="menu-theme-wrap">
+                        <button type="button" id="theme-light-mobile" class="menu-theme-btn" data-theme-value="light">Light</button>
+                        <button type="button" id="theme-dark-mobile" class="menu-theme-btn active" data-theme-value="dark">Dark</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / About Section -->
+    <section id="about" class="relative z-10 w-full pt-20 pb-24 trapezoid-top trapezoid-bottom bg-slate-900/55 border-y border-slate-800/60 mb-6">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="relative group flex flex-col items-center gap-4">
+            <div class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500 rounded-full blur opacity-50 group-hover:opacity-85 transition duration-500"></div>
+                <!-- Profile Picture Placeholder -->
+                <img src="profile.jpg" alt="Manikandan K" class="relative w-48 h-48 rounded-full object-cover border-2 border-slate-700 bg-slate-900 shadow-2xl" onerror="this.src='https://via.placeholder.com/200/0f172a/6366f1?text=Manikandan+K'">
+            </div>
+            <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 hover:border-indigo-500/50 text-indigo-400 hover:text-indigo-300 px-5 py-2.5 rounded-lg text-sm font-semibold transition whitespace-nowrap">
+                📄 Download Resume
+            </a>
+        </div>
+        
+        <div class="flex-1 space-y-4 text-center md:text-left">
+            <!-- Highlighted Name Banner -->
+            <div class="inline-block relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg blur opacity-30"></div>
+                <div class="relative px-4 py-3 bg-slate-900/90 rounded-lg border border-indigo-500/30 shadow-lg">
+                    <!-- <img src="mk-logo.svg" alt="MK logo" class="h-12 sm:h-14 w-auto mx-auto md:mx-0"> -->
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Hey 👋, I'm Manikandan Kalaivanan</h1>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">Or simply call me MANI 😄</p>
+                </div>
+            </div>
+
+            <p class="text-indigo-400 font-semibold text-lg">Project Lead & Senior Frontend Developer (13 Years Exp)</p>
+
+            <p class="text-slate-400 text-base leading-relaxed max-w-2xl">
+                Experienced frontend developer with 13 years crafting user-friendly interfaces and innovative designs. Enhancing digital presence through expertise in web development, performance optimization, Vue and React ecosystems, and production-grade delivery.
+            </p>
+
+            <div class="text-sm text-slate-300 flex flex-wrap items-center gap-x-3 gap-y-2 justify-center md:justify-start">
+                <span class="inline-flex items-center gap-1">🗺️ <span>Bangalore</span></span>
+                <span class="reveal-contact cursor-pointer inline-flex items-center gap-1 whitespace-nowrap" onclick="revealContact(this)" data-reveal-label="📞 +91 9886357715" data-href="tel:+919886357715">
+                    <span class="contact-label">📞 Click to reveal</span>
+                    <a class="contact-link hidden hover:text-indigo-400 transition" href="tel:+919886357715">📞 +91 9886357715</a>
+                </span>
+                <span class="reveal-contact cursor-pointer inline-flex items-center gap-1 whitespace-nowrap" onclick="revealContact(this)" data-reveal-label="📨 kabilash@outlook.com" data-href="mailto:kabilash@outlook.com">
+                    <span class="contact-label">📨 Click to reveal</span>
+                    <a class="contact-link hidden hover:text-indigo-400 transition" href="mailto:kabilash@outlook.com">📨 kabilash@outlook.com</a>
+                </span>
+                <a href="https://www.linkedin.com/in/manikandan-k" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition inline-flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+
+            <!-- Key Highlight Badges -->
+            <div class="flex flex-wrap gap-2 pt-2 justify-center md:justify-start">
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Next.js (SSR / ISR / Performance)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Vue 3 Ecosystem (Router / Pinia)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">AI-Assisted Frontend Delivery</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">React Component Architecture</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">CI/CD and Release Quality</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Web Vitals & Optimization</span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="relative z-10 max-w-6xl mx-auto px-6 pb-8">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <span class="w-2 h-6 bg-cyan-500 rounded-full"></span> Skills
+        </h2>
+        <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">JavaScript</span>
+            <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">React.js</span>
+            <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Vue.js</span>
+            <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Next.js</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">NodeJS</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">HTML5</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">CSS</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">SCSS</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">PrimeVue</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Bootstrap</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Tailwind CSS</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Material UI</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Vee-Validate</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Claude AI</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">GitHub Copilot</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Devin AI</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Zod</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Git</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">NPM</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Yarn</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Webpack</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">PHP</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">MySQL</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">PostgreSQL</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">dotnet</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Microsoft Power Platform</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Power Apps</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Power Automate</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Power Pages</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Agile Methodology</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">CI/CD</span>
+            <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Git Actions</span>
+        </div>
+    </section>
+
+    <!-- Experience Section (Trapezoid Cut Background) -->
+    <section id="experience" class="relative z-10 bg-slate-900/80 border-y border-indigo-500/10 trapezoid-top trapezoid-bottom py-24 my-4">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-white mb-10 flex items-center gap-3">
+                <span class="w-2 h-6 bg-indigo-500 rounded-full"></span> Professional Work Experience
+            </h2>
+
+            <div class="exp-timeline space-y-8 relative">
+                <!-- Persistent Systems -->
+                <div class="relative pl-8">
+                    <div class="timeline-node absolute left-1.5 top-1.5 w-3 h-3 bg-indigo-500 rounded-full"></div>
+                    <div class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl space-y-3 backdrop-blur-sm">
+                        <div class="flex flex-wrap justify-between items-start gap-2">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Project Lead</h3>
+                                <p class="text-indigo-400 font-medium text-sm">Persistent Systems</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-indigo-950/60 border border-indigo-800/40 px-3 py-1 rounded-full">Aug 2022 – Present</span>
+                        </div>
+                        <ul class="list-disc pl-5 text-slate-400 text-sm space-y-2 leading-relaxed">
+                            <li>Leading major legacy application modernizations using the Vue.js ecosystem, Vue Router, Pinia, PrimeVue, and the Mosaic Design System (MDS).</li>
+                            <li>Rebuilt the <strong>Task Scheduler</strong> module in 3 months with strict Vee-Validate & Zod schema validation workflows.</li>
+                            <li>Modernized the <strong>Performance & Talent (Clear Review)</strong> platform (Phase 1 & Phase 2) focused on performance and UI consistency.</li>
+                            <li>Developed internal web apps with <strong>Next.js (SSR/SSG), Tailwind CSS, and Docker</strong>, utilizing code-splitting and lazy loading for top performance.</li>
+                            <li>Created executive CXO dashboards using React.js and implemented 3 Microsoft Power Platform projects (Power Apps, Power Automate, Power Pages).</li>
+                        </ul>
+                        <div id="persistent-more" class="show-more-content mt-3">
+                            <ul class="list-disc pl-5 text-slate-400 text-sm space-y-2 leading-relaxed">
+                                <li>Collaborated closely with presales and design teams to define project goals and produce client-facing prototypes.</li>
+                                <li>Drove component reuse and UI consistency through MDS and common engineering practices.</li>
+                                <li>Delivered robust validation journeys using schema-first forms to reduce entry errors and improve data quality.</li>
+                                <li>Implemented route-level optimization patterns across Vue Router and module boundaries.</li>
+                                <li>Worked on phased releases with stakeholder sign-offs and iterative UX refinement.</li>
+                                <li>Contributed to handoff notes, sprint planning, and release tracking across agile teams.</li>
+                                <li>Built tailored dashboard experiences for business users with actionable visualization and metrics context.</li>
+                                <li>Supported workflow automation initiatives using Microsoft Power Platform integrations.</li>
+                                <li>Maintained delivery timelines while balancing modernization with active business needs.</li>
+                                <li>Reviewed implementation quality and mentored developers on reusable component design.</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold" onclick="toggleMore('persistent-more', this)">Show more</button>
+                    </div>
+                </div>
+
+                <!-- AutumnGrey -->
+                <div class="relative pl-8">
+                    <div class="timeline-node timeline-node-muted absolute left-1.5 top-1.5 w-3 h-3 bg-slate-600 rounded-full"></div>
+                    <div class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl space-y-3 backdrop-blur-sm">
+                        <div class="flex flex-wrap justify-between items-start gap-2">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Senior Web Developer</h3>
+                                <p class="text-indigo-400 font-medium text-sm">AutumnGrey</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-indigo-950/60 border border-indigo-800/40 px-3 py-1 rounded-full">Jul 2017 – Aug 2022</span>
+                        </div>
+                        <ul class="list-disc pl-5 text-slate-400 text-sm space-y-2 leading-relaxed">
+                            <li>Delivered key web applications and high-traffic campaign portals for clients including <strong>Economic Times, Dell, Tata Coffee, Raymonds, Grey, Weikfield, PepsiCo India, and Birla White</strong>.</li>
+                            <li>Translated designs and functional wireframes into responsive front-end code with speed, scalability, and onsite SEO best practices.</li>
+                            <li>Worked with CMS platforms including WordPress, Drupal, and OpenCart, paired with custom PHP, Laravel, React, and MySQL backend components.</li>
+                            <li>Worked on <strong>Strapi CMS</strong> and Next.js projects, including SSR/SSG implementation patterns and modular component architecture.</li>
+                            <li>Handled website maintenance and development for <a href="https://www.melbournepark.com.au/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">melbournepark.com.au</a> (Featured Work).</li>
+                            <li>Mentored junior team members and prepared reports/presentations for stakeholders.</li>
+                        </ul>
+                        <div id="autumngrey-more" class="show-more-content mt-3">
+                            <ul class="list-disc pl-5 text-slate-400 text-sm space-y-2 leading-relaxed">
+                                <li>Built responsive campaign websites and micro-sites on tight timelines.</li>
+                                <li>Converted PSD and design assets into standards-compliant HTML/CSS layouts.</li>
+                                <li>Created responsive mailers and newsletters for marketing campaigns.</li>
+                                <li>Implemented frontend enhancements based on direct client feature requests.</li>
+                                <li>Optimized page loading and runtime behavior for better conversion journeys.</li>
+                                <li>Coordinated with design teams to keep visual consistency across project pages.</li>
+                                <li>Integrated frontend interfaces with PHP, Laravel, and MySQL-driven backends.</li>
+                                <li>Delivered CMS-driven sites across WordPress, Drupal, and OpenCart ecosystems.</li>
+                                <li>Prepared project reports, launch decks, and implementation notes for stakeholders.</li>
+                                <li>Mentored junior developers in responsive standards and reusable code practices.</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold" onclick="toggleMore('autumngrey-more', this)">Show more</button>
+                    </div>
+                </div>
+
+                <!-- MRM End to End -->
+                <div class="relative pl-8">
+                    <div class="timeline-node timeline-node-muted absolute left-1.5 top-1.5 w-3 h-3 bg-slate-600 rounded-full"></div>
+                    <div class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl space-y-3 backdrop-blur-sm">
+                        <div class="flex flex-wrap justify-between items-start gap-2">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white">Web Developer</h3>
+                                <p class="text-indigo-400 font-medium text-sm">MRM End to End</p>
+                            </div>
+                            <span class="text-xs text-slate-400 bg-indigo-950/60 border border-indigo-800/40 px-3 py-1 rounded-full">Jul 2012 – Jul 2017</span>
+                        </div>
+                        <ul class="list-disc pl-5 text-slate-400 text-sm space-y-2 leading-relaxed">
+                            <li>Built responsive microsites, registration portals, email campaign architectures, and web portals using PHP and MySQL.</li>
+                            <li>Managed setup and technical execution for corporate webinars and client analytics reports.</li>
+                        </ul>
+                        <div id="mrm-more" class="show-more-content mt-3">
+                            <ul class="list-disc pl-5 text-slate-400 text-sm space-y-2 leading-relaxed">
+                                <li>Developed micro-portals and campaign properties with backend integration support.</li>
+                                <li>Created registration pages and data capture flows for multiple campaign requirements.</li>
+                                <li>Set up and managed email campaign execution activities.</li>
+                                <li>Handled webinar setup and coordination for digital events.</li>
+                                <li>Prepared project reports and presentation materials for client updates.</li>
+                                <li>Supported end-to-end web initiative delivery from UI through backend integration.</li>
+                                <li>Maintained front-end templates and reusable snippets for recurring campaign rollouts.</li>
+                                <li>Coordinated with backend teams to map form data and workflow events accurately.</li>
+                                <li>Implemented browser-compatible HTML/CSS patterns for broad user coverage.</li>
+                                <li>Optimized landing pages for reliable load behavior on varied network speeds.</li>
+                                <li>Provided post-launch support and quick-turn fixes during active campaigns.</li>
+                                <li>Managed stakeholder change requests while preserving delivery timelines.</li>
+                                <li>Contributed to documentation of deployment steps and production checklists.</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold" onclick="toggleMore('mrm-more', this)">Show more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="relative z-10 max-w-6xl mx-auto px-6 py-20">
+        <h2 class="text-2xl font-bold text-white mb-10 flex items-center gap-3">
+            <span class="w-2 h-6 bg-cyan-500 rounded-full"></span> Featured Projects
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1: Boom Games / Rummyverse -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden hover:border-indigo-500/40 transition duration-300">
+                <div class="p-6 space-y-3">
+                    <h3 class="text-xl font-bold text-white">Boom Games (Rummyverse)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Built using Next.js (SSR & ISR) and React to target a 90+ PageSpeed score. Integrated with <strong>Strapi Headless CMS</strong> for customizable content management and Docker containers for seamless deployment.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-xs px-2.5 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Next.js (SSR/ISR)</span>
+                        <span class="text-xs px-2.5 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">React</span>
+                        <span class="text-xs px-2.5 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Strapi CMS</span>
+                        <span class="text-xs px-2.5 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Docker</span>
+                        <span class="text-xs px-2.5 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Chalo Changi -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition duration-300">
+                <div class="p-6 space-y-3">
+                    <h3 class="text-xl font-bold text-white">Chalo Changi (Changi Airport Campaign)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Rapid-turnaround campaign website developed for Indian travelers visiting Singapore via Changi Airport during the pandemic. Built with HTML5/CSS, Bootstrap, jQuery, and Laravel.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-xs px-2.5 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">Laravel</span>
+                        <span class="text-xs px-2.5 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">Bootstrap</span>
+                        <span class="text-xs px-2.5 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">jQuery</span>
+                        <span class="text-xs px-2.5 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Melbourne Park -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden hover:border-emerald-500/40 transition duration-300">
+                <div class="p-6 space-y-3">
+                    <div class="space-y-1">
+                        <h3 class="text-xl font-bold text-white">Melbourne Park</h3>
+                        <a href="https://www.melbournepark.com.au/" target="_blank" rel="noopener noreferrer" class="inline-block text-xs text-emerald-400 hover:underline">melbournepark.com.au ↗</a>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Featured work focused on website maintenance and ongoing development, with emphasis on reliable releases, UI consistency, and performance-aware enhancements.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Maintenance</span>
+                        <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Frontend Development</span>
+                        <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Performance Tuning</span>
+                        <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Wordpress CMS</span>
+                        <span class="text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">React</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Client Work -->
+            <div class="bg-slate-900/40 border border-slate-800 p-6 rounded-xl lg:col-span-3">
+                <h4 class="text-md font-bold text-slate-200 mb-3">Some Live Projects</h4>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                    <a href="https://experion.co/" target="_blank" rel="noopener noreferrer" class="live-work-tile">Experion ↗</a>
+                    <a href="https://tatacoffee.com" target="_blank" rel="noopener noreferrer" class="live-work-tile">Tata Coffee ↗</a>
+                    <a href="https://multiplesequity.com/" target="_blank" rel="noopener noreferrer" class="live-work-tile">Multiples Equity ↗</a>
+                    <a href="https://weikfield.com" target="_blank" rel="noopener noreferrer" class="live-work-tile">Weikfield ↗</a>
+                    <a href="https://skhgroup.co.in" target="_blank" rel="noopener noreferrer" class="live-work-tile">SKH Group ↗</a>
+                    <a href="https://modernspaaces.com/" target="_blank" rel="noopener noreferrer" class="live-work-tile">Modern Spaaces ↗</a>
+                    <a href="https://www.birlawhite.com" target="_blank" rel="noopener noreferrer" class="live-work-tile">Birla White ↗</a>
+                    <a href="https://pepsicoindia.co.in" target="_blank" rel="noopener noreferrer" class="live-work-tile">PepsiCo India ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Blog Section (Trapezoid Top Edge) -->
+    <section id="blog" class="relative z-10 bg-slate-900/60 border-t border-slate-800 trapezoid-top py-24 my-4">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="relative group inline-block mb-6">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+                <div class="relative px-6 py-4 bg-slate-900/90 rounded-lg border border-indigo-500/30 shadow-lg">
+                    <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">MK Tech Blog</h2>
+                </div>
+            </div>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-8">
+                Practical guides on AI-assisted development, Claude skills, automation workflows, and productivity hacks.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-8 text-left">
+                    <a href="blog-jira-fetch.html" class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl hover:border-indigo-500/40 transition group">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-indigo-400 mb-3">
+                            <span>AI & Tool Use</span> • <span>10 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition">Building My First Claude Skill: Jira Ticket Fetcher</h3>
+                        <p class="text-sm text-slate-400 mb-4">Learn how I built a custom Claude skill that saves hours every week by automatically fetching Jira tickets with attachments—no more copy-paste!</p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs px-2 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Claude Skills</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Jira API</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Python</span>
+                        </div>
+                        <span class="text-sm text-indigo-400 font-semibold">Read article →</span>
+                    </a>
+
+                    <a href="blog-run-checklist.html" class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/40 transition group">
+                        <div class="text-5xl mb-4">✅</div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-3">
+                            <span>Code Quality</span> • <span>6 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition">Never Skip Steps Again: The Run Checklist Skill</h3>
+                        <p class="text-sm text-slate-400 mb-4">AI generates code fast, but does it match your team's standards? This skill verifies AI-generated code follows your project conventions.</p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Standards</span>
+                            <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Quality</span>
+                            <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Automation</span>
+                        </div>
+                        <span class="text-sm text-emerald-400 font-semibold">Read article →</span>
+                    </a>
+
+                    <a href="blog-superpowers.html" class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl hover:border-cyan-500/40 transition group">
+                        <div class="text-5xl mb-4">⚡</div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-cyan-400 mb-3">
+                            <span>Workflow Automation</span> • <span>8 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition">Supercharge Your Development with Claude Superpowers</h3>
+                        <p class="text-sm text-slate-400 mb-4">Transform Claude into a workflow engine with pre-built skills for brainstorming, debugging, and test-driven development.</p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">Brainstorming</span>
+                            <span class="text-xs px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">TDD</span>
+                            <span class="text-xs px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">Debugging</span>
+                        </div>
+                        <span class="text-sm text-cyan-400 font-semibold">Read article →</span>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8 text-left">
+                    <a href="blog-nextjs-rendering.html" class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl hover:border-indigo-500/40 transition group">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-indigo-400 mb-3">
+                            <span>Next.js Deep Dive</span> • <span>12 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-400 transition">Understanding SSR, SSG, and ISR in Next.js</h3>
+                        <p class="text-sm text-slate-400 mb-4">Master the three core rendering strategies in Next.js to build lightning-fast, SEO-friendly web applications with optimal user experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs px-2 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Next.js</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">SSR/SSG/ISR</span>
+                            <span class="text-xs px-2 py-1 bg-indigo-500/10 text-indigo-400 rounded border border-indigo-500/20">Performance</span>
+                        </div>
+                        <span class="text-sm text-indigo-400 font-semibold">Read article →</span>
+                    </a>
+
+                    <a href="blog-web-optimization.html" class="bg-slate-950/80 border border-slate-800 p-6 rounded-xl hover:border-emerald-500/40 transition group">
+                        <div class="text-5xl mb-4">⚡</div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-3">
+                            <span>Web Performance</span> • <span>15 min</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition">How to Optimize Webpages and Decode PageSpeed Scores</h3>
+                        <p class="text-sm text-slate-400 mb-4">Your complete guide to understanding PageSpeed Insights, Core Web Vitals, and proven optimization techniques to achieve 90+ performance scores.</p>
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">PageSpeed</span>
+                            <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Core Web Vitals</span>
+                            <span class="text-xs px-2 py-1 bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">Optimization</span>
+                        </div>
+                        <span class="text-sm text-emerald-400 font-semibold">Read article →</span>
+                    </a>
+                </div>
+
+                <div class="text-center">
+                    <a href="blog.html" class="inline-block bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 hover:border-indigo-500/50 text-indigo-400 hover:text-indigo-300 px-6 py-3 rounded-lg font-semibold transition">
+                        View All Articles →
+                    </a>
+                </div>
+        </div>
+    </section>
+
+    <footer class="relative z-10 border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+        © 2026 Manikandan K. Built with passion and Claude AI.
+    </footer>
+
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('profile-theme', theme);
+            // Desktop theme buttons
+            document.getElementById('theme-dark')?.classList.toggle('active', theme === 'dark');
+            document.getElementById('theme-light')?.classList.toggle('active', theme === 'light');
+            // Mobile theme buttons
+            document.getElementById('theme-dark-mobile')?.classList.toggle('active', theme === 'dark');
+            document.getElementById('theme-light-mobile')?.classList.toggle('active', theme === 'light');
+        }
+
+        function wireThemeControls() {
+            document.querySelectorAll('[data-theme-value]').forEach((btn) => {
+                btn.addEventListener('click', () => setTheme(btn.getAttribute('data-theme-value')));
+            });
+        }
+
+        (function initTheme() {
+            wireThemeControls();
+            const savedTheme = localStorage.getItem('profile-theme') || 'dark';
+            setTheme(savedTheme);
+        })();
+
+        function scrollToSection(id) {
+            if (id === 'about') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function toggleMore(id, button) {
+            const block = document.getElementById(id);
+            if (!block) return;
+            block.classList.toggle('open');
+            button.textContent = block.classList.contains('open') ? 'Show less' : 'Show more';
+        }
+
+        function toggleCode(id, button) {
+            const block = document.getElementById(id);
+            if (!block) return;
+            block.classList.toggle('open');
+
+            // Toggle arrow icon
+            const arrow = button.querySelector('span:first-child');
+            if (arrow) {
+                arrow.textContent = block.classList.contains('open') ? '▼' : '▶';
+            }
+        }
+
+        function revealContact(element) {
+            const label = element.querySelector('.contact-label');
+            const link = element.querySelector('.contact-link');
+            const revealedValue = element.dataset.revealLabel;
+            if (!label || !link || !revealedValue) return;
+
+            const defaultValue = label.dataset.defaultValue || label.textContent;
+            label.dataset.defaultValue = defaultValue;
+            label.classList.add('hidden');
+            link.classList.remove('hidden');
+
+            if (element.dataset.revealTimeout) {
+                clearTimeout(Number(element.dataset.revealTimeout));
+            }
+
+            const timeoutId = setTimeout(() => {
+                link.classList.add('hidden');
+                label.textContent = defaultValue;
+                label.classList.remove('hidden');
+                delete element.dataset.revealTimeout;
+            }, 5000);
+
+            element.dataset.revealTimeout = String(timeoutId);
+        }
+    </script>
+</body>
+</html>

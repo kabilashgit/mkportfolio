@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Checklist Skill: Verify AI-Generated Code Standards | Manikandan K</title>
+    <link rel="icon" type="image/svg+xml" href="mk-logo-white.svg">
+    <meta name="description" content="AI generates code fast, but does it match your team's standards? Learn how to use the run-checklist skill to verify AI-generated code follows your project conventions.">
+    <meta name="keywords" content="code quality, AI-generated code, coding standards, code review, automation, best practices, component standards, accessibility, TypeScript, linting">
+    <meta name="author" content="Manikandan K">
+    <meta property="og:title" content="Run Checklist Skill: Verify AI Code Standards">
+    <meta property="og:description" content="Ensure AI-generated code matches your team's standards with automated checklist verification.">
+    <meta property="og:type" content="article">
+    <link rel="canonical" href="https://yoursite.com/blog-run-checklist.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="bg-sprite-grid absolute inset-0 opacity-40"></div>
+        <div class="brand-watermark" aria-hidden="true"><img src="mk-logo-white.svg" alt="" class="invert-on-light"></div>
+        <div class="sprite sprite-1"></div>
+        <div class="sprite sprite-2"></div>
+        <div class="sprite sprite-3"></div>
+    </div>
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 grid grid-cols-3 items-center">
+            <a href="blog.html" class="flex items-center gap-2 hover:opacity-80 transition justify-start">
+                <span class="text-sm font-semibold text-slate-300">← Back to Blog</span>
+            </a>
+            <a href="index.html" class="flex items-center justify-center">
+                <img src="mk-logo-white.svg" alt="MK logo" class="brand-mark invert-on-light">
+            </a>
+            <div class="flex justify-end">
+                <div class="menu-theme-wrap">
+                    <button type="button" id="theme-light" class="menu-theme-btn" data-theme-value="light">Light</button>
+                    <button type="button" id="theme-dark" class="menu-theme-btn active" data-theme-value="dark">Dark</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <article class="relative z-10 max-w-4xl mx-auto px-6 py-16">
+        <div class="mb-8">
+            <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-4">
+                <span>Code Quality</span> • <span>6 min read</span>
+            </div>
+            <h1 class="text-4xl font-bold text-white mb-4">Never Skip Steps Again: The Run Checklist Skill</h1>
+            <p class="text-slate-400 text-lg">AI generates code fast, but does it match your team's standards? This skill verifies AI-generated code follows your project conventions before you ship.</p>
+        </div>
+        <div class="bg-slate-950/80 border border-slate-800 p-8 rounded-2xl space-y-4 shadow-lg backdrop-blur-sm">
+            <div class="text-slate-300 text-sm leading-relaxed space-y-4">
+                <div class="bg-emerald-500/10 border-l-4 border-emerald-500 p-4 rounded">
+                    <p class="text-sm">AI writes code <em>fast</em>. But does it follow your team's standards? Does it use the right patterns? Is it accessible? The <strong>Run Checklist</strong> skill is like a pre-flight check for AI-generated code—verifying it meets your project's conventions before it ships.</p>
+                </div>
+                <h2 class="text-lg font-bold text-white pt-2">⚠️ The Problem: AI Doesn't Know Your Standards</h2>
+                <p>Claude can build a feature in seconds. But here's the catch: it doesn't automatically know:</p>
+                <ul class="list-none space-y-2 text-sm text-slate-400 mb-3">
+                    <li>❌ Your component composition patterns</li>
+                    <li>❌ Your team's code style guide</li>
+                    <li>❌ Your accessibility requirements</li>
+                    <li>❌ Your naming conventions</li>
+                    <li>❌ Your testing standards</li>
+                </ul>
+                <p class="text-slate-400">So you end up with code that <em>works</em> but doesn't match your project. Then comes the cleanup...</p>
+                <h2 class="text-lg font-bold text-white pt-3">✅ The Solution: Run Checklist Skill</h2>
+                <p>The Run Checklist skill acts as a quality gate. After Claude generates code, invoke <code class="code-inline">/run-checklist</code> and it verifies the code against your project's standards—automatically.</p>
+
+                <h2 class="text-lg font-bold text-white pt-4">📋 What It Checks</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-slate-900/80 border-l-4 border-indigo-500 p-4 rounded-lg">
+                        <h3 class="font-bold text-indigo-400 mb-2">🧩 Component Structure</h3>
+                        <ul class="text-xs text-slate-400 space-y-1">
+                            <li>✓ Proper composition patterns</li>
+                            <li>✓ No prop drilling</li>
+                            <li>✓ Reusable abstractions</li>
+                            <li>✓ Single responsibility</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/80 border-l-4 border-cyan-500 p-4 rounded-lg">
+                        <h3 class="font-bold text-cyan-400 mb-2">📐 Code Standards</h3>
+                        <ul class="text-xs text-slate-400 space-y-1">
+                            <li>✓ Naming conventions</li>
+                            <li>✓ File structure</li>
+                            <li>✓ Import order</li>
+                            <li>✓ Code formatting</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/80 border-l-4 border-emerald-500 p-4 rounded-lg">
+                        <h3 class="font-bold text-emerald-400 mb-2">♿ Accessibility</h3>
+                        <ul class="text-xs text-slate-400 space-y-1">
+                            <li>✓ ARIA labels</li>
+                            <li>✓ Keyboard navigation</li>
+                            <li>✓ Screen reader support</li>
+                            <li>✓ Color contrast</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-900/80 border-l-4 border-purple-500 p-4 rounded-lg">
+                        <h3 class="font-bold text-purple-400 mb-2">🧪 Testing</h3>
+                        <ul class="text-xs text-slate-400 space-y-1">
+                            <li>✓ Unit tests present</li>
+                            <li>✓ Edge cases covered</li>
+                            <li>✓ Mocks properly setup</li>
+                            <li>✓ Test naming</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">🚀 How to Use It</h2>
+                <div class="bg-slate-900/90 border border-slate-800 rounded-lg p-4">
+                    <pre class="text-xs text-slate-300 overflow-x-auto code-block p-3 rounded"><code>// Step 1: Claude generates your component
+You: "Build a UserProfile component with avatar and bio"
+Claude: [generates code]
+
+// Step 2: Run the checklist
+You: "/run-checklist"
+
+Claude:
+📋 Running quality checks...
+
+✓ Component Structure - PASS
+✓ Code Standards - PASS
+⚠ Accessibility - NEEDS WORK
+  - Missing ARIA label on avatar image
+  - Bio text needs semantic HTML
+✓ Testing - PASS
+
+Recommendations:
+1. Add alt text and role to avatar
+2. Wrap bio in <p> tag with proper hierarchy
+
+Fixed code: [shows corrected version]</code></pre>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">💡 Why It Works</h2>
+                <div class="space-y-2">
+                    <div class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-lg">
+                        <span class="text-2xl">🎯</span>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-200">Consistency</p>
+                            <p class="text-xs text-slate-400">Every piece of AI-generated code follows the same standards</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-lg">
+                        <span class="text-2xl">⏱️</span>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-200">Catch Issues Early</p>
+                            <p class="text-xs text-slate-400">Fix problems before PR review, not after</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-lg">
+                        <span class="text-2xl">📚</span>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-200">Team Knowledge</p>
+                            <p class="text-xs text-slate-400">Codifies your team's best practices into a reusable workflow</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-lg mt-4">
+                    <p class="text-sm text-slate-300">💭 <strong>Bottom line:</strong> AI speeds up coding, but the Run Checklist ensures quality doesn't suffer. It's like having a senior dev review every line—automatically.</p>
+                    <p class="text-sm text-slate-400 mt-2"><strong>Before:</strong> Generate code → realize it doesn't match standards → manual cleanup → PR feedback → more fixes</p>
+                    <p class="text-sm text-slate-400"><strong>After:</strong> Generate code → <code class="code-inline">/run-checklist</code> → ship with confidence</p>
+                    <p class="text-sm text-slate-300 mt-3">Quality gates shouldn't slow you down—they should be built into your workflow.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Hero / About Section -->
+    <section id="about" class="relative z-10 w-full pt-20 pb-24 trapezoid-top bg-slate-900/55 border-y border-slate-800/60">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="relative group flex flex-col items-center gap-4">
+            <div class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500 rounded-full blur opacity-50 group-hover:opacity-85 transition duration-500"></div>
+                <!-- Profile Picture Placeholder -->
+                <img src="profile.jpg" alt="Manikandan K" class="relative w-48 h-48 rounded-full object-cover border-2 border-slate-700 bg-slate-900 shadow-2xl" onerror="this.src='https://via.placeholder.com/200/0f172a/6366f1?text=Manikandan+K'">
+            </div>
+            <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 hover:border-indigo-500/50 text-indigo-400 hover:text-indigo-300 px-5 py-2.5 rounded-lg text-sm font-semibold transition whitespace-nowrap">
+                📄 Download Resume
+            </a>
+        </div>
+
+        <div class="flex-1 space-y-4 text-center md:text-left">
+            <!-- Highlighted Name Banner -->
+            <div class="inline-block relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg blur opacity-30"></div>
+                <div class="relative px-4 py-3 bg-slate-900/90 rounded-lg border border-indigo-500/30 shadow-lg">
+                    <!-- <img src="mk-logo.svg" alt="MK logo" class="h-12 sm:h-14 w-auto mx-auto md:mx-0"> -->
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Hey 👋, I'm Manikandan Kalaivanan</h1>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">Or simply call me MANI 😄</p>
+                </div>
+            </div>
+
+            <p class="text-indigo-400 font-semibold text-lg">Project Lead & Senior Frontend Developer (13 Years Exp)</p>
+
+            <p class="text-slate-400 text-base leading-relaxed max-w-2xl">
+                Experienced frontend developer with 13 years crafting user-friendly interfaces and innovative designs. Enhancing digital presence through expertise in web development, performance optimization, Vue and React ecosystems, and production-grade delivery.
+            </p>
+
+            <div class="text-sm text-slate-300 flex flex-wrap gap-x-5 gap-y-2 justify-center md:justify-start">
+                <span>🗺️ Bangalore</span>
+                <span class="reveal-contact relative cursor-pointer inline-block whitespace-nowrap" style="min-width: 160px;" onclick="revealContact(this)">
+                    <span class="contact-hidden transition-opacity">📞 Click to reveal</span>
+                    <span class="contact-revealed absolute left-0 top-0 opacity-0 transition-opacity whitespace-nowrap">📞 +91 9886357715</span>
+                </span>
+                <span class="reveal-contact relative cursor-pointer inline-block whitespace-nowrap" style="min-width: 200px;" onclick="revealContact(this)">
+                    <span class="contact-hidden transition-opacity">📨 Click to reveal</span>
+                    <span class="contact-revealed absolute left-0 top-0 opacity-0 transition-opacity whitespace-nowrap">📨 kabilash@outlook.com</span>
+                </span>
+                <a href="https://www.linkedin.com/in/manikandan-k" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition inline-flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+
+            <!-- Key Highlight Badges -->
+            <div class="flex flex-wrap gap-2 pt-2 justify-center md:justify-start">
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Next.js (SSR / ISR / Performance)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Vue 3 Ecosystem (Router / Pinia)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">AI-Assisted Frontend Delivery</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">React Component Architecture</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">CI/CD and Release Quality</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Web Vitals & Optimization</span>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer class="relative z-10 border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+        © 2026 Manikandan K. Built with passion and Claude AI.
+    </footer>
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('profile-theme', theme);
+            document.getElementById('theme-dark')?.classList.toggle('active', theme === 'dark');
+            document.getElementById('theme-light')?.classList.toggle('active', theme === 'light');
+        }
+        function wireThemeControls() {
+            document.querySelectorAll('[data-theme-value]').forEach((btn) => {
+                btn.addEventListener('click', () => setTheme(btn.getAttribute('data-theme-value')));
+            });
+        }
+        (function initTheme() {
+            wireThemeControls();
+            const savedTheme = localStorage.getItem('profile-theme') || 'dark';
+            setTheme(savedTheme);
+        })();
+
+        function revealContact(element) {
+            const hidden = element.querySelector('.contact-hidden');
+            const revealed = element.querySelector('.contact-revealed');
+
+            if (hidden && revealed) {
+                hidden.style.opacity = '0';
+                revealed.style.opacity = '1';
+
+                // Optional: Hide again after 5 seconds
+                setTimeout(() => {
+                    hidden.style.opacity = '1';
+                    revealed.style.opacity = '0';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

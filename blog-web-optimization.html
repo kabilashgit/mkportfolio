@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Optimize Webpages and Decode PageSpeed Scores | Tutorial | Manikandan K</title>
+    <link rel="icon" type="image/svg+xml" href="mk-logo-white.svg">
+    <meta name="description" content="Complete guide to web performance optimization. Learn how to interpret PageSpeed Insights scores and implement proven techniques to achieve 90+ scores.">
+    <meta name="keywords" content="web optimization, PageSpeed Insights, Core Web Vitals, LCP, FID, CLS, performance, SEO, web development, optimization techniques">
+    <meta name="author" content="Manikandan K">
+    <meta property="og:title" content="Optimize Webpages & Decode PageSpeed Scores">
+    <meta property="og:description" content="Master web performance optimization with this comprehensive guide to achieving 90+ PageSpeed scores.">
+    <meta property="og:type" content="article">
+    <link rel="canonical" href="https://yoursite.com/blog-web-optimization.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="bg-sprite-grid absolute inset-0 opacity-40"></div>
+        <div class="brand-watermark" aria-hidden="true"><img src="mk-logo-white.svg" alt="" class="invert-on-light"></div>
+        <div class="sprite sprite-1"></div>
+        <div class="sprite sprite-2"></div>
+        <div class="sprite sprite-3"></div>
+    </div>
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 grid grid-cols-3 items-center">
+            <a href="blog.html" class="flex items-center gap-2 hover:opacity-80 transition justify-start">
+                <span class="text-sm font-semibold text-slate-300">← Back to Blog</span>
+            </a>
+            <a href="index.html" class="flex items-center justify-center">
+                <img src="mk-logo-white.svg" alt="MK logo" class="brand-mark invert-on-light">
+            </a>
+            <div class="flex justify-end">
+                <div class="menu-theme-wrap">
+                    <button type="button" id="theme-light" class="menu-theme-btn" data-theme-value="light">Light</button>
+                    <button type="button" id="theme-dark" class="menu-theme-btn active" data-theme-value="dark">Dark</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <article class="relative z-10 max-w-4xl mx-auto px-6 py-16">
+        <div class="mb-8">
+            <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 mb-4">
+                <span>Web Performance</span> • <span>15 min read</span>
+            </div>
+            <h1 class="text-4xl font-bold text-white mb-4">How to Optimize Webpages and Decode PageSpeed Scores</h1>
+            <p class="text-slate-400 text-lg">Your complete guide to understanding PageSpeed Insights, Core Web Vitals, and proven optimization techniques to achieve 90+ performance scores.</p>
+        </div>
+        <div class="bg-slate-950/80 border border-slate-800 p-8 rounded-2xl space-y-4 shadow-lg backdrop-blur-sm">
+            <div class="text-slate-300 text-sm leading-relaxed space-y-4">
+                <div class="bg-emerald-500/10 border-l-4 border-emerald-500 p-4 rounded">
+                    <p class="text-sm">A fast website isn't just nice to have—it directly impacts user experience, SEO rankings, and conversion rates. In this guide, I'll break down what those PageSpeed numbers really mean and show you exactly how to optimize your site ⚡</p>
+                </div>
+                
+                <h2 class="text-lg font-bold text-white pt-2">📊 Understanding PageSpeed Insights</h2>
+                <p>Google's PageSpeed Insights analyzes your website and gives you two scores: one for <strong>Mobile</strong> and one for <strong>Desktop</strong>. But what do those scores actually measure?</p>
+                
+                <div class="bg-slate-900/90 border border-slate-800 rounded-lg p-4 mt-3">
+                    <p class="text-xs text-emerald-400 mb-2">🎯 The Score Breakdown</p>
+                    <ul class="list-none space-y-2 text-sm text-slate-400">
+                        <li><strong class="text-green-400">90-100:</strong> ✅ Excellent - Fast and optimized</li>
+                        <li><strong class="text-yellow-400">50-89:</strong> ⚠️ Needs improvement - Moderate performance</li>
+                        <li><strong class="text-red-400">0-49:</strong> ❌ Poor - Slow and needs significant work</li>
+                    </ul>
+                </div>
+
+                <div class="bg-orange-500/10 border border-orange-500/30 p-3 rounded-lg mt-3">
+                    <p class="text-xs text-slate-300"><strong class="text-orange-400">💡 Important:</strong> PageSpeed scores are based on <strong>Lab Data</strong> (simulated) and <strong>Field Data</strong> (real user metrics from Chrome User Experience Report). Both matter!</p>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">🔑 Core Web Vitals: The Big Three</h2>
+                <p>Google uses three key metrics to measure user experience. Master these, and your scores will soar:</p>
+
+                <div class="space-y-4 mt-4">
+                    <div class="bg-slate-900/80 border-l-4 border-blue-500 p-4 rounded-lg">
+                        <h3 class="font-bold text-blue-400 mb-2">1. LCP - Largest Contentful Paint</h3>
+                        <p class="text-sm text-slate-300 mb-2"><strong>What it measures:</strong> How long it takes for the largest element on your page to load</p>
+                        <div class="text-xs text-slate-400 space-y-1">
+                            <p>🟢 Good: &lt; 2.5 seconds</p>
+                            <p>🟡 Needs Improvement: 2.5 - 4 seconds</p>
+                            <p>🔴 Poor: &gt; 4 seconds</p>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2"><strong>Why it matters:</strong> Users perceive fast LCP as "the page loaded quickly"</p>
+                    </div>
+
+                    <div class="bg-slate-900/80 border-l-4 border-purple-500 p-4 rounded-lg">
+                        <h3 class="font-bold text-purple-400 mb-2">2. FID - First Input Delay (now INP)</h3>
+                        <p class="text-sm text-slate-300 mb-2"><strong>What it measures:</strong> Time from user interaction to browser response</p>
+                        <div class="text-xs text-slate-400 space-y-1">
+                            <p>🟢 Good: &lt; 100ms</p>
+                            <p>🟡 Needs Improvement: 100 - 300ms</p>
+                            <p>🔴 Poor: &gt; 300ms</p>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2"><strong>Why it matters:</strong> Measures how responsive your site feels to users</p>
+                        <p class="text-xs text-orange-400 mt-2">⚠️ <em>Note: Google is transitioning to INP (Interaction to Next Paint) in 2024</em></p>
+                    </div>
+
+                    <div class="bg-slate-900/80 border-l-4 border-cyan-500 p-4 rounded-lg">
+                        <h3 class="font-bold text-cyan-400 mb-2">3. CLS - Cumulative Layout Shift</h3>
+                        <p class="text-sm text-slate-300 mb-2"><strong>What it measures:</strong> Visual stability—how much content shifts unexpectedly</p>
+                        <div class="text-xs text-slate-400 space-y-1">
+                            <p>🟢 Good: &lt; 0.1</p>
+                            <p>🟡 Needs Improvement: 0.1 - 0.25</p>
+                            <p>🔴 Poor: &gt; 0.25</p>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2"><strong>Why it matters:</strong> Prevents annoying "content jump" when you're trying to click something</p>
+                    </div>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">⚡ Optimization Techniques: From 50 to 90+</h2>
+                <p>Here's my battle-tested checklist for optimizing any website. I use these on every project:</p>
+
+                <div class="bg-slate-900/80 border-l-4 border-indigo-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-indigo-400 mb-3">🖼️ Image Optimization (Biggest Win!)</h3>
+                    <p class="text-sm text-slate-300 mb-2">Images are usually 50-70% of page weight. Optimize them first!</p>
+                    <ul class="list-none space-y-2 text-xs text-slate-400">
+                        <li>✓ Use modern formats: WebP (90% smaller than JPEG) or AVIF</li>
+                        <li>✓ Implement responsive images with <code class="code-inline">srcset</code> and <code class="code-inline">sizes</code></li>
+                        <li>✓ Add <code class="code-inline">loading="lazy"</code> for below-the-fold images</li>
+                        <li>✓ Set explicit <code class="code-inline">width</code> and <code class="code-inline">height</code> attributes (prevents CLS)</li>
+                        <li>✓ Compress images: TinyPNG, Squoosh, or ImageOptim</li>
+                        <li>✓ Use CDN with automatic image optimization (Cloudflare, Vercel)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-4 mt-4">
+                    <button type="button" class="text-sm hover:text-indigo-300 transition flex items-start gap-2 w-full" onclick="toggleCode('image-code', this)">
+                        <span>▶</span>
+                        <div class="flex flex-col items-start">
+                            <span class="text-xs font-semibold text-indigo-400">Image Optimization Example</span>
+                            <span class="text-xs text-slate-500">Modern responsive image markup</span>
+                        </div>
+                    </button>
+                    <div id="image-code" class="show-more-content mt-3">
+                        <pre class="bg-slate-950 p-4 rounded text-xs text-slate-300 overflow-x-auto code-block"><code>&lt;!-- Next.js Image Component (Automatic Optimization) --&gt;
+&lt;Image
+  src="/hero.jpg"
+  alt="Hero image"
+  width={1200}
+  height={600}
+  priority={true}  // For LCP images
+  quality={85}
+/&gt;
+
+&lt;!-- Manual Responsive Images --&gt;
+&lt;picture&gt;
+  &lt;source 
+    srcset="/hero-small.webp 400w, /hero-medium.webp 800w, /hero-large.webp 1200w"
+    type="image/webp"
+  /&gt;
+  &lt;img 
+    src="/hero.jpg"
+    alt="Hero image"
+    width="1200"
+    height="600"
+    loading="lazy"
+  /&gt;
+&lt;/picture&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border-l-4 border-cyan-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-cyan-400 mb-3">📦 Code Splitting & Lazy Loading</h3>
+                    <p class="text-sm text-slate-300 mb-2">Only load what's needed, when it's needed</p>
+                    <ul class="list-none space-y-2 text-xs text-slate-400">
+                        <li>✓ Split JavaScript by route (Next.js does this automatically)</li>
+                        <li>✓ Lazy load components below the fold</li>
+                        <li>✓ Defer non-critical JavaScript with <code class="code-inline">defer</code> or <code class="code-inline">async</code></li>
+                        <li>✓ Remove unused CSS (PurgeCSS, Tailwind's built-in purge)</li>
+                        <li>✓ Tree-shake dependencies (most bundlers do this)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-4 mt-4">
+                    <button type="button" class="text-sm hover:text-cyan-300 transition flex items-start gap-2 w-full" onclick="toggleCode('lazy-code', this)">
+                        <span>▶</span>
+                        <div class="flex flex-col items-start">
+                            <span class="text-xs font-semibold text-cyan-400">Lazy Loading Examples</span>
+                            <span class="text-xs text-slate-500">React and Next.js patterns</span>
+                        </div>
+                    </button>
+                    <div id="lazy-code" class="show-more-content mt-3">
+                        <pre class="bg-slate-950 p-4 rounded text-xs text-slate-300 overflow-x-auto code-block"><code>// React: Lazy load components
+import { lazy, Suspense } from 'react';
+
+const HeavyChart = lazy(() => import('./HeavyChart'));
+
+function Dashboard() {
+  return (
+    &lt;Suspense fallback={&lt;Spinner /&gt;}&gt;
+      &lt;HeavyChart /&gt;
+    &lt;/Suspense&gt;
+  );
+}
+
+// Next.js: Dynamic imports with SSR disabled
+import dynamic from 'next/dynamic';
+
+const DynamicMap = dynamic(() => import('./Map'), {
+  ssr: false,  // Skip SSR for client-only components
+  loading: () =&gt; &lt;p&gt;Loading map...&lt;/p&gt;
+});</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border-l-4 border-emerald-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-emerald-400 mb-3">🚀 Critical Rendering Path</h3>
+                    <p class="text-sm text-slate-300 mb-2">Optimize the initial page load sequence</p>
+                    <ul class="list-none space-y-2 text-xs text-slate-400">
+                        <li>✓ Inline critical CSS (above-the-fold styles)</li>
+                        <li>✓ Preload key resources: <code class="code-inline">&lt;link rel="preload"&gt;</code></li>
+                        <li>✓ Preconnect to external domains: <code class="code-inline">&lt;link rel="preconnect"&gt;</code></li>
+                        <li>✓ Minimize render-blocking resources</li>
+                        <li>✓ Use font-display: swap for web fonts</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-4 mt-4">
+                    <button type="button" class="text-sm hover:text-emerald-300 transition flex items-start gap-2 w-full" onclick="toggleCode('critical-code', this)">
+                        <span>▶</span>
+                        <div class="flex flex-col items-start">
+                            <span class="text-xs font-semibold text-emerald-400">Critical Path Optimization</span>
+                            <span class="text-xs text-slate-500">HTML head optimizations</span>
+                        </div>
+                    </button>
+                    <div id="critical-code" class="show-more-content mt-3">
+                        <pre class="bg-slate-950 p-4 rounded text-xs text-slate-300 overflow-x-auto code-block"><code>&lt;head&gt;
+  &lt;!-- Preconnect to external domains --&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+  &lt;link rel="preconnect" href="https://cdn.example.com" /&gt;
+
+  &lt;!-- Preload critical assets --&gt;
+  &lt;link rel="preload" href="/hero-image.webp" as="image" /&gt;
+  &lt;link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin /&gt;
+
+  &lt;!-- Inline critical CSS --&gt;
+  &lt;style&gt;
+    /* Above-the-fold styles here */
+    body { margin: 0; font-family: sans-serif; }
+    .hero { min-height: 100vh; }
+  &lt;/style&gt;
+
+  &lt;!-- Load non-critical CSS asynchronously --&gt;
+  &lt;link rel="stylesheet" href="/main.css" media="print" onload="this.media='all'" /&gt;
+
+  &lt;!-- Web fonts with swap --&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" /&gt;
+&lt;/head&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border-l-4 border-purple-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-purple-400 mb-3">🎨 Preventing Layout Shifts (CLS)</h3>
+                    <p class="text-sm text-slate-300 mb-2">Stop content from jumping around</p>
+                    <ul class="list-none space-y-2 text-xs text-slate-400">
+                        <li>✓ Always set <code class="code-inline">width</code> and <code class="code-inline">height</code> on images/videos</li>
+                        <li>✓ Reserve space for ads and embeds with min-height</li>
+                        <li>✓ Avoid inserting content above existing content</li>
+                        <li>✓ Use <code class="code-inline">transform</code> for animations (not top/left)</li>
+                        <li>✓ Preload web fonts to prevent FOUT (Flash of Unstyled Text)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/80 border-l-4 border-yellow-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-yellow-400 mb-3">⚙️ Server & Hosting Optimization</h3>
+                    <p class="text-sm text-slate-300 mb-2">Backend matters too!</p>
+                    <ul class="list-none space-y-2 text-xs text-slate-400">
+                        <li>✓ Enable gzip/brotli compression</li>
+                        <li>✓ Use HTTP/2 or HTTP/3</li>
+                        <li>✓ Implement browser caching (Cache-Control headers)</li>
+                        <li>✓ Use a CDN (Cloudflare, Vercel Edge, AWS CloudFront)</li>
+                        <li>✓ Minify HTML, CSS, and JavaScript</li>
+                        <li>✓ Enable server-side caching (Redis, Varnish)</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">🔧 Tools I Use Daily</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
+                        <p class="font-bold text-indigo-400 text-sm mb-1">PageSpeed Insights</p>
+                        <p class="text-xs text-slate-400">Official Google tool for performance analysis</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
+                        <p class="font-bold text-cyan-400 text-sm mb-1">Lighthouse (Chrome DevTools)</p>
+                        <p class="text-xs text-slate-400">Built-in performance auditing</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
+                        <p class="font-bold text-emerald-400 text-sm mb-1">WebPageTest</p>
+                        <p class="text-xs text-slate-400">Detailed waterfall analysis and filmstrip view</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
+                        <p class="font-bold text-purple-400 text-sm mb-1">Chrome UX Report</p>
+                        <p class="text-xs text-slate-400">Real user experience data from the field</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
+                        <p class="font-bold text-yellow-400 text-sm mb-1">Bundlephobia</p>
+                        <p class="text-xs text-slate-400">Check npm package sizes before installing</p>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-3">
+                        <p class="font-bold text-orange-400 text-sm mb-1">Squoosh / TinyPNG</p>
+                        <p class="text-xs text-slate-400">Image compression tools</p>
+                    </div>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">📈 My Real-World Results</h2>
+                <div class="bg-slate-900/90 border border-slate-800 rounded-lg p-4 mt-3">
+                    <p class="text-sm text-slate-300 mb-3">Here's what I achieved on recent projects using these techniques:</p>
+                    <div class="space-y-3 text-xs">
+                        <div class="border-l-4 border-indigo-500 pl-3">
+                            <p class="font-semibold text-indigo-400">Boom Games (Rummyverse)</p>
+                            <p class="text-slate-400">Mobile: 92 | Desktop: 98 | LCP: 1.8s</p>
+                            <p class="text-slate-500 text-xs mt-1">Stack: Next.js SSR/ISR, WebP images, code splitting</p>
+                        </div>
+                        <div class="border-l-4 border-cyan-500 pl-3">
+                            <p class="font-semibold text-cyan-400">Corporate Dashboard</p>
+                            <p class="text-slate-400">Mobile: 88 | Desktop: 95 | LCP: 2.1s</p>
+                            <p class="text-slate-500 text-xs mt-1">Stack: React + Vite, lazy loading, CDN</p>
+                        </div>
+                        <div class="border-l-4 border-emerald-500 pl-3">
+                            <p class="font-semibold text-emerald-400">E-commerce Product Pages</p>
+                            <p class="text-slate-400">Mobile: 90 | Desktop: 96 | LCP: 2.3s</p>
+                            <p class="text-slate-500 text-xs mt-1">Stack: Next.js ISR, responsive images, prefetching</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">🎯 Quick Wins Checklist</h2>
+                <div class="bg-indigo-500/10 border-l-4 border-indigo-500 p-4 rounded mt-3">
+                    <p class="text-sm text-slate-300 mb-3">Start here for immediate improvements:</p>
+                    <ul class="list-none space-y-2 text-xs text-slate-300">
+                        <li>☐ Convert all images to WebP format</li>
+                        <li>☐ Add <code class="code-inline">width</code> and <code class="code-inline">height</code> to all images</li>
+                        <li>☐ Enable lazy loading for below-fold images</li>
+                        <li>☐ Minify and compress all assets</li>
+                        <li>☐ Use a CDN for static assets</li>
+                        <li>☐ Enable gzip/brotli compression</li>
+                        <li>☐ Preload critical resources</li>
+                        <li>☐ Remove unused CSS and JavaScript</li>
+                        <li>☐ Set proper cache headers</li>
+                        <li>☐ Use <code class="code-inline">font-display: swap</code> for web fonts</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">⚠️ Common Mistakes to Avoid</h2>
+                <div class="space-y-2 mt-3 text-xs">
+                    <div class="bg-red-500/10 border-l-4 border-red-500 p-3 rounded">
+                        <p class="text-red-400 font-semibold mb-1">❌ Loading entire libraries for one function</p>
+                        <p class="text-slate-400">Use tree-shaking or import only what you need</p>
+                    </div>
+                    <div class="bg-red-500/10 border-l-4 border-red-500 p-3 rounded">
+                        <p class="text-red-400 font-semibold mb-1">❌ Not setting image dimensions</p>
+                        <p class="text-slate-400">Causes layout shift (kills CLS score)</p>
+                    </div>
+                    <div class="bg-red-500/10 border-l-4 border-red-500 p-3 rounded">
+                        <p class="text-red-400 font-semibold mb-1">❌ Blocking the main thread with heavy JavaScript</p>
+                        <p class="text-slate-400">Defer or split heavy computations</p>
+                    </div>
+                    <div class="bg-red-500/10 border-l-4 border-red-500 p-3 rounded">
+                        <p class="text-red-400 font-semibold mb-1">❌ Loading analytics/tracking scripts synchronously</p>
+                        <p class="text-slate-400">Use async or defer attributes</p>
+                    </div>
+                </div>
+
+                <h2 class="text-lg font-bold text-white pt-4">💡 Key Takeaways</h2>
+                <div class="bg-emerald-500/10 border-l-4 border-emerald-500 p-4 rounded mt-3">
+                    <ul class="list-none space-y-2 text-sm text-slate-300">
+                        <li>🎯 <strong>Images first:</strong> Optimize images for the biggest performance gains</li>
+                        <li>📊 <strong>Focus on Core Web Vitals:</strong> LCP, FID/INP, and CLS directly impact rankings</li>
+                        <li>⚡ <strong>Lazy load aggressively:</strong> Only load what's visible</li>
+                        <li>🔧 <strong>Use the right tools:</strong> Test often with Lighthouse and PageSpeed Insights</li>
+                        <li>📈 <strong>Monitor continuously:</strong> Performance degrades over time—stay vigilant</li>
+                        <li>🏗️ <strong>Build performance in:</strong> Use frameworks with optimization built-in (Next.js, Gatsby)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/80 border border-slate-700 rounded-lg p-4 mt-6">
+                    <p class="text-xs text-slate-400 mb-2">📚 Further Reading:</p>
+                    <ul class="list-none space-y-1 text-xs text-indigo-400">
+                        <li>→ <a href="https://web.dev/vitals/" target="_blank" rel="noopener noreferrer" class="hover:underline">Web Vitals by Google</a></li>
+                        <li>→ <a href="https://web.dev/learn/" target="_blank" rel="noopener noreferrer" class="hover:underline">web.dev Learn Performance</a></li>
+                        <li>→ Previous article: <a href="blog-nextjs-rendering.html" class="hover:underline">Understanding SSR, SSG, and ISR in Next.js</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Hero / About Section -->
+    <section id="about" class="relative z-10 w-full pt-20 pb-24 trapezoid-top bg-slate-900/55 border-y border-slate-800/60">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="relative group flex flex-col items-center gap-4">
+            <div class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500 rounded-full blur opacity-50 group-hover:opacity-85 transition duration-500"></div>
+                <!-- Profile Picture Placeholder -->
+                <img src="profile.jpg" alt="Manikandan K" class="relative w-48 h-48 rounded-full object-cover border-2 border-slate-700 bg-slate-900 shadow-2xl" onerror="this.src='https://via.placeholder.com/200/0f172a/6366f1?text=Manikandan+K'">
+            </div>
+            <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 hover:border-indigo-500/50 text-indigo-400 hover:text-indigo-300 px-5 py-2.5 rounded-lg text-sm font-semibold transition whitespace-nowrap">
+                📄 Download Resume
+            </a>
+        </div>
+
+        <div class="flex-1 space-y-4 text-center md:text-left">
+            <!-- Highlighted Name Banner -->
+            <div class="inline-block relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg blur opacity-30"></div>
+                <div class="relative px-4 py-3 bg-slate-900/90 rounded-lg border border-indigo-500/30 shadow-lg">
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Hey 👋, I'm Manikandan Kalaivanan</h1>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">Or simply call me MANI 😄</p>
+                </div>
+            </div>
+
+            <p class="text-indigo-400 font-semibold text-lg">Project Lead & Senior Frontend Developer (13 Years Exp)</p>
+
+            <p class="text-slate-400 text-base leading-relaxed max-w-2xl">
+                Experienced frontend developer with 13 years crafting user-friendly interfaces and innovative designs. Enhancing digital presence through expertise in web development, performance optimization, Vue and React ecosystems, and production-grade delivery.
+            </p>
+
+            <div class="text-sm text-slate-300 flex flex-wrap items-center gap-x-3 gap-y-2 justify-center md:justify-start">
+                <span class="inline-flex items-center gap-1">🗺️ <span>Bangalore</span></span>
+                <span class="reveal-contact cursor-pointer inline-flex items-center gap-1 whitespace-nowrap" onclick="revealContact(this)" data-reveal-label="📞 +91 9886357715" data-href="tel:+919886357715">
+                    <span class="contact-label">📞 Click to reveal</span>
+                    <a class="contact-link hidden hover:text-indigo-400 transition" href="tel:+919886357715">📞 +91 9886357715</a>
+                </span>
+                <span class="reveal-contact cursor-pointer inline-flex items-center gap-1 whitespace-nowrap" onclick="revealContact(this)" data-reveal-label="📨 kabilash@outlook.com" data-href="mailto:kabilash@outlook.com">
+                    <span class="contact-label">📨 Click to reveal</span>
+                    <a class="contact-link hidden hover:text-indigo-400 transition" href="mailto:kabilash@outlook.com">📨 kabilash@outlook.com</a>
+                </span>
+                <a href="https://www.linkedin.com/in/manikandan-k" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition inline-flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+
+            <!-- Key Highlight Badges -->
+            <div class="flex flex-wrap gap-2 pt-2 justify-center md:justify-start">
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Next.js (SSR / ISR / Performance)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Vue 3 Ecosystem (Router / Pinia)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">AI-Assisted Frontend Delivery</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">React Component Architecture</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">CI/CD and Release Quality</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Web Vitals & Optimization</span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="relative z-10 border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+        © 2026 Manikandan K. Built with passion and Claude AI.
+    </footer>
+
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('profile-theme', theme);
+            document.getElementById('theme-dark')?.classList.toggle('active', theme === 'dark');
+            document.getElementById('theme-light')?.classList.toggle('active', theme === 'light');
+        }
+
+        document.querySelectorAll('[data-theme-value]').forEach((btn) => {
+            btn.addEventListener('click', () => setTheme(btn.getAttribute('data-theme-value')));
+        });
+
+        (function() {
+            const savedTheme = localStorage.getItem('profile-theme') || 'dark';
+            setTheme(savedTheme);
+        })();
+
+        function toggleCode(id, button) {
+            const block = document.getElementById(id);
+            if (!block) return;
+            block.classList.toggle('open');
+            const arrow = button.querySelector('span:first-child');
+            if (arrow) {
+                arrow.textContent = block.classList.contains('open') ? '▼' : '▶';
+            }
+        }
+
+        function revealContact(element) {
+            const label = element.querySelector('.contact-label');
+            const link = element.querySelector('.contact-link');
+            const revealedValue = element.dataset.revealLabel;
+            if (!label || !link || !revealedValue) return;
+
+            const defaultValue = label.dataset.defaultValue || label.textContent;
+            label.dataset.defaultValue = defaultValue;
+            label.classList.add('hidden');
+            link.classList.remove('hidden');
+
+            if (element.dataset.revealTimeout) {
+                clearTimeout(Number(element.dataset.revealTimeout));
+            }
+
+            const timeoutId = setTimeout(() => {
+                link.classList.add('hidden');
+                label.textContent = defaultValue;
+                label.classList.remove('hidden');
+                delete element.dataset.revealTimeout;
+            }, 5000);
+
+            element.dataset.revealTimeout = String(timeoutId);
+        }
+    </script>
+</body>
+</html>

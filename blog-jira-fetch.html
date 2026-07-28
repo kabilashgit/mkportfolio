@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Claude Skill: Auto-Fetch Jira Tickets | Tutorial | Manikandan K</title>
+    <link rel="icon" type="image/svg+xml" href="mk-logo-white.svg">
+    <meta name="description" content="Step-by-step guide to building a custom Claude skill that automatically fetches Jira tickets with attachments. Save hours by eliminating manual copy-paste workflow.">
+    <meta name="keywords" content="Claude skills, Jira API, automation, Python, AI tools, productivity, ticket management, API integration, custom tools, developer workflow">
+    <meta name="author" content="Manikandan K">
+    <meta property="og:title" content="Build a Claude Skill to Auto-Fetch Jira Tickets">
+    <meta property="og:description" content="Learn how to build a custom Claude skill that saves hours by automatically fetching Jira tickets with all attachments.">
+    <meta property="og:type" content="article">
+    <link rel="canonical" href="https://yoursite.com/blog-jira-fetch.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden">
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="bg-sprite-grid absolute inset-0 opacity-40"></div>
+        <div class="brand-watermark" aria-hidden="true"><img src="mk-logo-white.svg" alt="" class="invert-on-light"></div>
+        <div class="sprite sprite-1"></div>
+        <div class="sprite sprite-2"></div>
+        <div class="sprite sprite-3"></div>
+    </div>
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-6 h-16 grid grid-cols-3 items-center">
+            <a href="blog.html" class="flex items-center gap-2 hover:opacity-80 transition justify-start">
+                <span class="text-sm font-semibold text-slate-300">← Back to Blog</span>
+            </a>
+            <a href="index.html" class="flex items-center justify-center">
+                <img src="mk-logo-white.svg" alt="MK logo" class="brand-mark invert-on-light">
+            </a>
+            <div class="flex justify-end">
+                <div class="menu-theme-wrap">
+                    <button type="button" id="theme-light" class="menu-theme-btn" data-theme-value="light">Light</button>
+                    <button type="button" id="theme-dark" class="menu-theme-btn active" data-theme-value="dark">Dark</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <article class="relative z-10 max-w-4xl mx-auto px-6 py-16">
+        <div class="mb-8">
+            <div class="flex items-center gap-2 text-xs font-semibold text-indigo-400 mb-4">
+                <span>AI & Tool Use Tutorial</span> • <span>10 min read</span>
+            </div>
+            <h1 class="text-4xl font-bold text-white mb-4">Building My First Claude Skill: A Jira Ticket Fetcher</h1>
+            <p class="text-slate-400 text-lg">Learn how I built a custom Claude skill that saves hours every week by automatically fetching Jira tickets with attachments—no more copy-paste!</p>
+        </div>
+        <div class="bg-slate-950/80 border border-slate-800 p-8 rounded-2xl space-y-4 shadow-lg backdrop-blur-sm">
+            <div class="text-slate-300 text-sm leading-relaxed space-y-4">
+                <div class="bg-indigo-500/10 border-l-4 border-indigo-500 p-4 rounded">
+                    <p class="text-sm">Ever wished you could just <em>talk</em> to your project management tools? I built a Claude skill that lets me fetch Jira tickets by simply saying "hey, show me ticket ABC-123". No browser tabs, no clicking around. Just... magic ✨</p>
+                </div>
+                <h2 class="text-lg font-bold text-white pt-2">😫 The Problem</h2>
+                <p>Here's the daily struggle: Your Product Owner assigns you a Jira ticket. You open Claude (or any AI coding assistant) to start working. But now you need to give Claude context about the task.</p>
+                <p class="text-slate-400 mb-2">So what do you do? You:</p>
+                <ul class="list-none space-y-2 text-sm text-slate-400 mb-3">
+                    <li>📋 Open Jira in browser</li>
+                    <li>📝 Copy-paste the ticket description</li>
+                    <li>🖼️ Download all the mockups and screenshots</li>
+                    <li>📎 Manually attach each file to your AI chat</li>
+                    <li>😵 Lose 5-10 minutes doing all this... every single ticket</li>
+                </ul>
+                <p class="text-slate-400">By the time you're done, you've lost your flow. There had to be a better way!</p>
+                <h2 class="text-lg font-bold text-white pt-3">💡 The Solution: A Custom Claude Skill</h2>
+                <p>I built a skill that eliminates all that manual work. Now when the PO assigns me a ticket, I just tell Claude to fetch it. No copy-paste, no downloading, no manual attaching. Just one simple command.</p>
+                <div class="bg-slate-900/90 border border-slate-800 rounded-lg p-4">
+                    <p class="text-xs text-emerald-400 mb-2">📝 How it works now:</p>
+                    <pre class="text-xs text-slate-300 overflow-x-auto code-block p-3 rounded"><code>Me: "fetch jira PROJECT-123"
+// or use the skill directly: /jira-fetch PROJECT-123
+
+Claude:
+✓ Fetching from Jira API...
+✓ Ticket data saved
+Downloading 3 attachment(s)...
+  ✓ Downloaded: design-mockup.png (39KB)
+  ✓ Downloaded: requirements.pdf (156KB)
+  ✓ Downloaded: spec-document.pdf (89KB)
+
+**PROJECT-123: Build user authentication flow**
+Status: In Progress
+Assignee: Mani
+Priority: High
+Sprint: Sprint 24
+
+Description:
+[Full ticket description with all requirements...]
+
+Acceptance Criteria:
+- User can login with email/password
+- Session persists for 24 hours
+- Error messages for invalid credentials
+
+Ready to start? I have all the context and attachments!</code></pre>
+                </div>
+                <p class="text-slate-400 mt-3">That's it! One command, and Claude has <strong>everything</strong>—ticket details, acceptance criteria, design mockups, all attachments. I can start coding immediately 🚀</p>
+                <div class="bg-indigo-500/10 border border-indigo-500/30 p-3 rounded-lg mt-3">
+                    <p class="text-xs text-slate-300"><strong class="text-indigo-400">Pro tip:</strong> You can even say it naturally: <em>"fetch jira ticket for login page"</em> or <em>"get me PROJECT-123"</em>. Claude understands and triggers the skill automatically!</p>
+                </div>
+                <p class="text-slate-400 mt-3">Next time you need the same ticket? It's cached. Zero API calls, instant results ⚡</p>
+                <h2 class="text-lg font-bold text-white pt-4">🎯 How I Built It (Step-by-Step)</h2>
+                <div class="bg-slate-900/80 border-l-4 border-indigo-500 p-4 rounded-lg">
+                    <h3 class="font-bold text-indigo-400 mb-2">Step 1: Get Your Jira API Token</h3>
+                    <p class="text-sm mb-2">First, you need access to Jira's API. Super easy:</p>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm text-slate-400">
+                        <li>Go to: <code class="code-inline">id.atlassian.com/manage-profile/security/api-tokens</code></li>
+                        <li>Click "Create API token"</li>
+                        <li>Copy it and save it somewhere safe</li>
+                    </ol>
+                </div>
+                <div class="bg-slate-900/80 border-l-4 border-cyan-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-cyan-400 mb-2">Step 2: Set Up Environment Variables</h3>
+                    <p class="text-sm mb-3">Store your credentials securely in environment variables (never hardcode them!):</p>
+                    <p class="text-xs text-slate-400 mb-1">For Mac/Linux (add to ~/.bashrc):</p>
+                    <pre class="bg-slate-950 p-3 rounded text-xs text-slate-300 overflow-x-auto mb-3 code-block"><code>export JIRA_INSTANCE_URL="https://yourcompany.atlassian.net"
+export JIRA_AUTH_TOKEN="Basic $(echo -n 'your.email@company.com:YOUR_API_TOKEN' | base64)"</code></pre>
+                    <p class="text-xs text-slate-400 mb-1">For Windows PowerShell (add to $PROFILE):</p>
+                    <pre class="bg-slate-950 p-3 rounded text-xs text-slate-300 overflow-x-auto code-block"><code>$env:JIRA_INSTANCE_URL = "https://yourcompany.atlassian.net"
+$email = "your.email@company.com"
+$apiToken = "YOUR_API_TOKEN"
+$base64 = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("${email}:${apiToken}"))
+$env:JIRA_AUTH_TOKEN = "Basic $base64"</code></pre>
+                </div>
+                <div class="bg-slate-900/80 border-l-4 border-emerald-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-emerald-400 mb-2">Step 3: Write the Fetcher Script</h3>
+                    <p class="text-sm mb-2">I created a Python script that does the heavy lifting. It:</p>
+                    <ul class="list-none space-y-2 text-sm text-slate-300">
+                        <li>✓ Connects to Jira API</li>
+                        <li>✓ Downloads ticket data</li>
+                        <li>✓ Grabs all attachments automatically</li>
+                        <li>✓ Saves everything locally for caching</li>
+                    </ul>
+                    <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-4 mt-4">
+                        <button type="button" class="text-sm hover:text-emerald-300 transition flex items-start gap-2 w-full" onclick="toggleCode('fetch-code', this)">
+                            <span>▶</span>
+                            <div class="flex flex-col items-start">
+                                <span class="text-xs font-semibold text-indigo-400">fetch_ticket.py</span>
+                                <span class="text-xs text-slate-500">~50 lines • Fetches ticket data and downloads attachments</span>
+                            </div>
+                        </button>
+                        <div id="fetch-code" class="show-more-content mt-3 max-h-96 overflow-y-auto">
+                            <pre class="bg-slate-950 p-4 rounded text-xs text-slate-300 overflow-x-auto code-block"><code>#!/usr/bin/env python3
+"""
+Fetch Jira ticket from API and download all attachments.
+Usage: python fetch_ticket.py TICKET-KEY
+"""
+
+import sys
+import os
+import json
+import urllib.request
+import urllib.error
+
+def fetch_ticket_json(ticket_key, instance_url, auth_token):
+    """Fetch ticket JSON from Jira API."""
+    url = f"{instance_url}/rest/api/3/issue/{ticket_key}"
+
+    req = urllib.request.Request(url)
+    req.add_header('Authorization', auth_token)
+    req.add_header('Accept', 'application/json')
+
+    try:
+        with urllib.request.urlopen(req) as response:
+            return json.loads(response.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        print(f"Error fetching ticket: HTTP {e.code}")
+        sys.exit(1)
+
+def download_attachment(url, output_path, auth_token):
+    """Download a single attachment."""
+    req = urllib.request.Request(url)
+    req.add_header('Authorization', auth_token)
+
+    try:
+        with urllib.request.urlopen(req) as response:
+            with open(output_path, 'wb') as f:
+                f.write(response.read())
+        return os.path.getsize(output_path)
+    except Exception as e:
+        print(f"  ✗ Failed: {e}")
+        return 0
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python fetch_ticket.py TICKET-KEY")
+        sys.exit(1)
+
+    ticket_key = sys.argv[1]
+
+    # Get environment variables
+    instance_url = os.environ.get('JIRA_INSTANCE_URL')
+    auth_token = os.environ.get('JIRA_AUTH_TOKEN')
+
+    if not instance_url or not auth_token:
+        print("Error: JIRA_INSTANCE_URL and JIRA_AUTH_TOKEN must be set")
+        sys.exit(1)
+
+    # Determine save location (project cache)
+    project_cache = os.path.join(os.getcwd(), '.claude/temp/jira', ticket_key)
+    ticket_file = os.path.join(project_cache, 'ticket.json')
+    attachments_dir = os.path.join(project_cache, 'attachments')
+
+    # Create directories
+    os.makedirs(attachments_dir, exist_ok=True)
+
+    print(f"Fetching ticket {ticket_key} from Jira...")
+
+    # Fetch ticket JSON
+    ticket_data = fetch_ticket_json(ticket_key, instance_url, auth_token)
+
+    # Save ticket JSON
+    with open(ticket_file, 'w', encoding='utf-8') as f:
+        json.dump(ticket_data, f, indent=2, ensure_ascii=False)
+
+    print(f"✓ Ticket data saved to {ticket_file}")
+
+    # Download attachments
+    attachments = ticket_data.get('fields', {}).get('attachment', [])
+
+    if attachments:
+        print(f"\nDownloading {len(attachments)} attachment(s)...")
+
+        for att in attachments:
+            filename = att['filename']
+            url = att['content']
+            output_path = os.path.join(attachments_dir, filename)
+
+            size = download_attachment(url, output_path, auth_token)
+            if size > 0:
+                size_str = f"{size / 1024:.1f} KB" if size < 1024 * 1024 else f"{size / (1024 * 1024):.1f} MB"
+                print(f"  ✓ {filename} ({size_str})")
+    else:
+        print("\nNo attachments found")
+
+    print(f"\n✓ Saved to: {project_cache}/")
+
+if __name__ == '__main__':
+    main()</code></pre>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-4 mt-4">
+                        <button type="button" class="text-sm hover:text-emerald-300 transition flex items-start gap-2 w-full" onclick="toggleCode('display-code', this)">
+                            <span>▶</span>
+                            <div class="flex flex-col items-start">
+                                <span class="text-xs font-semibold text-indigo-400">display_ticket.py</span>
+                                <span class="text-xs text-slate-500">~20 lines • Formats ticket data for Claude display</span>
+                            </div>
+                        </button>
+                        <div id="display-code" class="show-more-content mt-3 max-h-96 overflow-y-auto">
+                            <pre class="bg-slate-950 p-4 rounded text-xs text-slate-300 overflow-x-auto code-block"><code>#!/usr/bin/env python3
+"""
+Display cached Jira ticket information.
+Usage: python display_ticket.py TICKET-KEY
+"""
+
+import sys
+import os
+import json
+import time
+
+def find_ticket(ticket_key):
+    """Check both cache locations and return path if found."""
+    project_cache = os.path.join(os.getcwd(), '.claude/temp/jira', ticket_key, 'ticket.json')
+    user_cache = os.path.join(os.path.expanduser('~'), '.claude/temp/jira', ticket_key, 'ticket.json')
+
+    if os.path.exists(project_cache):
+        return project_cache, 'project'
+    elif os.path.exists(user_cache):
+        return user_cache, 'user'
+    else:
+        return None, None
+
+def format_cache_info(ticket_path, cache_type, ticket_key):
+    """Display cache information."""
+    print(f'📁 Ticket {ticket_key} found in {cache_type} cache')
+
+    age_seconds = time.time() - os.path.getmtime(ticket_path)
+    age_minutes = age_seconds / 60
+
+    location = 'project (.claude/temp/jira/)' if cache_type == 'project' else 'user profile (~/.claude/temp/jira/)'
+    print(f'Location: {location}')
+
+    if age_minutes < 60:
+        print(f'Last fetched: {age_minutes:.0f} minutes ago')
+    else:
+        age_hours = age_minutes / 60
+        print(f'Last fetched: {age_hours:.1f} hours ago')
+
+    # Count attachments
+    attachments_dir = os.path.dirname(ticket_path) + '/attachments'
+    if os.path.exists(attachments_dir):
+        attachments = [f for f in os.listdir(attachments_dir) if os.path.isfile(os.path.join(attachments_dir, f))]
+        print(f'Cached attachments: {len(attachments)} file(s)')
+    print()
+
+def display_ticket(ticket_path):
+    """Parse and display ticket details."""
+    with open(ticket_path, encoding='utf-8') as f:
+        data = json.load(f)
+
+        print(f"**Key:** {data['key']}")
+        print(f"**Summary:** {data['fields']['summary']}")
+        print(f"**Status:** {data['fields']['status']['name']}")
+        print(f"**Type:** {data['fields']['issuetype']['name']}")
+        print(f"**Priority:** {data['fields']['priority']['name']}")
+
+        assignee = data['fields'].get('assignee')
+        print(f"**Assignee:** {assignee['displayName'] if assignee else 'Unassigned'}")
+
+        # Show attachments
+        attachments = data['fields'].get('attachment', [])
+        if attachments:
+            print(f"\n**Attachments ({len(attachments)} files):**")
+            for att in attachments:
+                print(f"  ✓ {att['filename']} - Cached")
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python display_ticket.py TICKET-KEY")
+        sys.exit(1)
+
+    ticket_key = sys.argv[1]
+
+    # Find ticket
+    ticket_path, cache_type = find_ticket(ticket_key)
+
+    if not ticket_path:
+        print(f"Ticket {ticket_key} not found in cache")
+        sys.exit(0)
+
+    # Display cache info
+    format_cache_info(ticket_path, cache_type, ticket_key)
+
+    # Display ticket details
+    display_ticket(ticket_path)
+
+if __name__ == '__main__':
+    main()</code></pre>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-4 mt-4">
+                        <button type="button" class="text-sm hover:text-emerald-300 transition flex items-start gap-2 w-full" onclick="toggleCode('skill-code', this)">
+                            <span>▶</span>
+                            <div class="flex flex-col items-start">
+                                <span class="text-xs font-semibold text-indigo-400">SKILL.md</span>
+                                <span class="text-xs text-slate-500">~30 lines • Claude skill configuration and usage docs</span>
+                            </div>
+                        </button>
+                        <div id="skill-code" class="show-more-content mt-3 max-h-96 overflow-y-auto">
+                            <pre class="bg-slate-950 p-4 rounded text-xs text-slate-300 overflow-x-auto code-block"><code>---
+name: jira-fetch
+description: Fetch Jira tickets with attachments and cache them locally
+---
+
+# Jira Ticket Fetcher
+
+Fetches Jira tickets with all attachments and caches them for reuse.
+
+## Usage
+
+`/jira-fetch TICKET-123` or just mention "fetch jira ticket PROJECT-456"
+
+## What it does
+
+1. Checks local cache first (project and user-level)
+2. If not cached, fetches from Jira API
+3. Downloads all ticket attachments
+4. Saves everything locally
+5. Displays formatted ticket information
+
+## Requirements
+
+Environment variables must be set:
+- `JIRA_INSTANCE_URL` - Your Jira URL
+- `JIRA_AUTH_TOKEN` - Base64 encoded credentials
+
+## Files
+
+- `fetch_ticket.py` - Main fetcher script
+- `display_ticket.py` - Formatting helper
+
+## Cache Locations
+
+- `.claude/temp/jira/` - Project-level cache
+- `~/.claude/temp/jira/` - User-level cache</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900/80 border-l-4 border-purple-500 p-4 rounded-lg mt-4">
+                    <h3 class="font-bold text-purple-400 mb-2">Step 4: Add Smart Caching</h3>
+                    <p class="text-sm mb-3">Here's where it gets cool. The skill checks two places for cached tickets:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="bg-slate-950/80 p-3 rounded border border-slate-700">
+                            <p class="text-xs font-bold text-indigo-400 mb-1">📁 Project Cache</p>
+                            <p class="text-xs text-slate-400"><code class="code-inline">.claude/temp/jira/</code></p>
+                            <p class="text-xs text-slate-500 mt-1">For this project only</p>
+                        </div>
+                        <div class="bg-slate-950/80 p-3 rounded border border-slate-700">
+                            <p class="text-xs font-bold text-cyan-400 mb-1">👤 User Cache</p>
+                            <p class="text-xs text-slate-400"><code class="code-inline">~/.claude/temp/jira/</code></p>
+                            <p class="text-xs text-slate-500 mt-1">Shared across all projects</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">First time? Fetches from Jira. Second time? Instant from cache ⚡</p>
+                </div>
+                <h2 class="text-lg font-bold text-white pt-4">🎓 What I Learned</h2>
+                <div class="space-y-2">
+                    <div class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-lg">
+                        <span class="text-2xl">🔐</span>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-200">Security First</p>
+                            <p class="text-xs text-slate-400">Never hardcode API keys. Environment variables keep your credentials safe.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-lg">
+                        <span class="text-2xl">⚡</span>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-200">Caching is King</p>
+                            <p class="text-xs text-slate-400">Smart caching reduced API calls by 90%. Same data? Use the cache!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-slate-900/60 rounded-lg">
+                        <span class="text-2xl">🌍</span>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-200">Think Cross-Platform</p>
+                            <p class="text-xs text-slate-400">Python's standard library works everywhere—Windows, Mac, Linux. No extra dependencies!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-lg mt-4">
+                    <p class="text-sm text-slate-300">💭 <strong>Bottom line:</strong> This skill transformed my workflow. No more copy-pasting ticket descriptions. No more downloading and attaching images one by one. No more context-switching between Jira and my AI assistant.</p>
+                    <p class="text-sm text-slate-400 mt-2"><strong>Before:</strong> PO assigns ticket → 5-10 minutes of manual setup → finally start coding</p>
+                    <p class="text-sm text-slate-400"><strong>After:</strong> PO assigns ticket → type <code class="code-inline">/jira-fetch PROJECT-123</code> → start coding immediately</p>
+                    <p class="text-sm text-slate-300 mt-3">Building custom Claude skills isn't just about automation—it's about creating a workflow where your AI assistant can <em>actually</em> access the tools you use every day. No manual bridges, no copy-paste, just seamless integration.</p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!-- Hero / About Section -->
+    <section id="about" class="relative z-10 w-full pt-20 pb-24 trapezoid-top bg-slate-900/55 border-y border-slate-800/60">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <div class="relative group flex flex-col items-center gap-4">
+            <div class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-cyan-500 to-purple-500 rounded-full blur opacity-50 group-hover:opacity-85 transition duration-500"></div>
+                <!-- Profile Picture Placeholder -->
+                <img src="profile.jpg" alt="Manikandan K" class="relative w-48 h-48 rounded-full object-cover border-2 border-slate-700 bg-slate-900 shadow-2xl" onerror="this.src='https://via.placeholder.com/200/0f172a/6366f1?text=Manikandan+K'">
+            </div>
+            <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 hover:border-indigo-500/50 text-indigo-400 hover:text-indigo-300 px-5 py-2.5 rounded-lg text-sm font-semibold transition whitespace-nowrap">
+                📄 Download Resume
+            </a>
+        </div>
+
+        <div class="flex-1 space-y-4 text-center md:text-left">
+            <!-- Highlighted Name Banner -->
+            <div class="inline-block relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-lg blur opacity-30"></div>
+                <div class="relative px-4 py-3 bg-slate-900/90 rounded-lg border border-indigo-500/30 shadow-lg">
+                    <!-- <img src="mk-logo.svg" alt="MK logo" class="h-12 sm:h-14 w-auto mx-auto md:mx-0"> -->
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Hey 👋, I'm Manikandan Kalaivanan</h1>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">Or simply call me MANI 😄</p>
+                </div>
+            </div>
+
+            <p class="text-indigo-400 font-semibold text-lg">Project Lead & Senior Frontend Developer (13 Years Exp)</p>
+
+            <p class="text-slate-400 text-base leading-relaxed max-w-2xl">
+                Experienced frontend developer with 13 years crafting user-friendly interfaces and innovative designs. Enhancing digital presence through expertise in web development, performance optimization, Vue and React ecosystems, and production-grade delivery.
+            </p>
+
+            <div class="text-sm text-slate-300 flex flex-wrap gap-x-5 gap-y-2 justify-center md:justify-start">
+                <span>🗺️ Bangalore</span>
+                <span class="reveal-contact relative cursor-pointer inline-block whitespace-nowrap" style="min-width: 160px;" onclick="revealContact(this)">
+                    <span class="contact-hidden transition-opacity">📞 Click to reveal</span>
+                    <span class="contact-revealed absolute left-0 top-0 opacity-0 transition-opacity whitespace-nowrap">📞 +91 9886357715</span>
+                </span>
+                <span class="reveal-contact relative cursor-pointer inline-block whitespace-nowrap" style="min-width: 200px;" onclick="revealContact(this)">
+                    <span class="contact-hidden transition-opacity">📨 Click to reveal</span>
+                    <span class="contact-revealed absolute left-0 top-0 opacity-0 transition-opacity whitespace-nowrap">📨 kabilash@outlook.com</span>
+                </span>
+                <a href="https://www.linkedin.com/in/manikandan-k" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition inline-flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+
+            <!-- Key Highlight Badges -->
+            <div class="flex flex-wrap gap-2 pt-2 justify-center md:justify-start">
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Next.js (SSR / ISR / Performance)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">Vue 3 Ecosystem (Router / Pinia)</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">AI-Assisted Frontend Delivery</span>
+                <span class="px-3 py-1 bg-indigo-950/80 border border-indigo-500/40 text-indigo-300 rounded-md text-xs font-semibold">React Component Architecture</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">CI/CD and Release Quality</span>
+                <span class="px-3 py-1 bg-slate-900/80 border border-slate-800 text-slate-300 rounded-md text-xs font-medium">Web Vitals & Optimization</span>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer class="relative z-10 border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+        © 2026 Manikandan K. Built with passion and Claude AI.
+    </footer>
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('profile-theme', theme);
+            document.getElementById('theme-dark')?.classList.toggle('active', theme === 'dark');
+            document.getElementById('theme-light')?.classList.toggle('active', theme === 'light');
+        }
+        function wireThemeControls() {
+            document.querySelectorAll('[data-theme-value]').forEach((btn) => {
+                btn.addEventListener('click', () => setTheme(btn.getAttribute('data-theme-value')));
+            });
+        }
+        (function initTheme() {
+            wireThemeControls();
+            const savedTheme = localStorage.getItem('profile-theme') || 'dark';
+            setTheme(savedTheme);
+        })();
+
+        function toggleCode(id, button) {
+            const block = document.getElementById(id);
+            if (!block) return;
+            block.classList.toggle('open');
+
+            // Toggle arrow icon
+            const arrow = button.querySelector('span:first-child');
+            if (arrow) {
+                arrow.textContent = block.classList.contains('open') ? '▼' : '▶';
+            }
+        }
+
+        function revealContact(element) {
+            const hidden = element.querySelector('.contact-hidden');
+            const revealed = element.querySelector('.contact-revealed');
+
+            if (hidden && revealed) {
+                hidden.style.opacity = '0';
+                revealed.style.opacity = '1';
+
+                // Optional: Hide again after 5 seconds
+                setTimeout(() => {
+                    hidden.style.opacity = '1';
+                    revealed.style.opacity = '0';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
